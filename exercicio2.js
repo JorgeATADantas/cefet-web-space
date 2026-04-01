@@ -54,3 +54,45 @@ const imagens = [
     }
   ];
 
+  //Variável contador para avançar caso próxima e retroceder caso anterior
+  let contador = 0;
+
+  //Caminho do Slide
+  let caminho = document.querySelector('#slide');
+
+  //Botão Próximo
+  let botaoProximo = document.querySelector('#proximo');
+
+  botaoProximo.addEventListener('click', function(){
+    contador++;
+    if (contador < imagens.length){
+      caminho.src=servidorDasImagens + "/" + imagens[contador].arquivo;
+      caminho.alt=imagens[contador].descricao;
+    }
+    else {
+      contador=0;
+      caminho.src=servidorDasImagens + "/" + imagens[contador].arquivo;
+      caminho.alt=imagens[contador].descricao;
+    }
+  });
+
+  //Botão Anterior
+  let botaoAnterior = document.querySelector('#anterior');
+
+  botaoAnterior.addEventListener('click', function(){
+    contador--;
+    if (contador < 0 ){
+      contador = (imagens.length)-1;
+      caminho.src=servidorDasImagens + "/" + imagens[contador].arquivo;
+      caminho.alt=imagens[contador].descricao;
+    }
+    else {
+      caminho.src=servidorDasImagens + "/" + imagens[contador].arquivo;
+      caminho.alt=imagens[contador].descricao;
+    }
+  });
+
+
+                    
+  
+
